@@ -18,6 +18,7 @@ class RegistrationForm(FlaskForm):
                                      validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
 
+
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
         if user:  # if the user is anything different than None, it will raise this ValidationError
